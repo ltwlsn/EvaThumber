@@ -373,7 +373,7 @@ class Parameters
             if(strlen($arg) < 3 || strpos($arg, '_') !== 1){
                 continue;
             }
-            $argKey = $arg{0};
+            $argKey = $arg[0];//STiV modify
             if(isset($argMapping[$argKey])){
                 $arg = substr($arg, 2);
                 if($arg !== ''){
