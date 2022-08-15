@@ -349,6 +349,7 @@ class Thumber
             'png'  => 'image/png',
             'wbmp' => 'image/vnd.wap.wbmp',
             'xbm'  => 'image/xbm',
+            'webp' => 'image/webp',//STiV add
         );
         header('Content-type: ' . $mimeTypes[$extension]);
         $handle = fopen ($this->optimizedImage, "r");
@@ -732,6 +733,14 @@ class Thumber
             $x = ($imageWidth - $layerWidth) / 2;
             $y = ($imageHeight - $layerHeight) / 2;
             break;
+                
+            //STiV add
+			case 'bc':
+			$x = ($imageWidth - $layerWidth) / 2;
+            $y = $imageHeight - $layerHeight;
+			if($x < 0 || $y < 0) return $this;
+            break;
+			//STiV add end
 
             case 'br':
             default:
